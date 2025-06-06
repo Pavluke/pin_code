@@ -1,6 +1,6 @@
 name: pin_code
 description: A flexible and fully customizable widget for PIN, OTP, and passcode entry. Perfect for verification screens, 2FA, transaction confirmations, and more.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/JhonaCodes/pin_code
 
 environment:

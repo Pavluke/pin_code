@@ -36,7 +36,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pin_code: ^1.0.1
+  pin_code: ^1.0.2
 ```
 
 Then, run `flutter pub get` and import it in your Dart code:
