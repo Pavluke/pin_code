@@ -48,9 +48,7 @@ void main() {
             length: 4,
             controller: TextEditingController(text: "123"),
             showCursor: false,
-            pinTheme: PinCodeTheme(
-              shape: PinCodeFieldShape.circle,
-            ),
+            pinTheme: PinCodeTheme(shape: PinCodeFieldShape.circle),
           ),
         ),
       );
@@ -101,7 +99,9 @@ void main() {
       );
     });
 
-    testWidgets('renders with custom sizes and MainAxisAlignment', (tester) async {
+    testWidgets('renders with custom sizes and MainAxisAlignment', (
+      tester,
+    ) async {
       await pumpGoldenTest(
         tester,
         'layout_custom_sizes_and_alignment',

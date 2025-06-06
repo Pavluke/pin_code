@@ -32,7 +32,9 @@ void main() {
             controller: TextEditingController(text: "DONE"),
             showCursor: false,
             pinTheme: PinCodeTheme(
-                activeColor: Colors.green, inactiveColor: Colors.green),
+              activeColor: Colors.green,
+              inactiveColor: Colors.green,
+            ),
           ),
         ),
       );
@@ -79,8 +81,7 @@ void main() {
             appContext: context,
             length: 4,
             obscureText: true,
-            obscuringWidget:
-            const Icon(Icons.privacy_tip_rounded, size: 20),
+            obscuringWidget: const Icon(Icons.privacy_tip_rounded, size: 20),
             controller: TextEditingController(text: "123"),
             showCursor: false,
           ),
@@ -132,7 +133,9 @@ void main() {
 
       await expectLater(
         find.byType(MaterialApp),
-        matchesGoldenFile('goldens/state_error_from_validator_after_validate.png'),
+        matchesGoldenFile(
+          'goldens/state_error_from_validator_after_validate.png',
+        ),
       );
     });
   });

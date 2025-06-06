@@ -6,7 +6,7 @@
 /// ```dart
 /// import 'package:pin_code/pin_code.dart';
 /// ```
-library pin_code;
+library;
 
 /// Exports configuration classes and enums.
 ///

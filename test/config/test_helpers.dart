@@ -17,12 +17,12 @@ export 'package:pin_code/pin_code.dart';
 /// [size]: El tamaño de la pantalla virtual para el test.
 /// [backgroundColor]: El color de fondo del Scaffold para el test.
 Future<void> pumpGoldenTest(
-    WidgetTester tester,
-    String goldenFileName, {
-      required Widget widget,
-      Size size = const Size(450, 200),
-      Color backgroundColor = const Color(0xFFF0F0F0),
-    }) async {
+  WidgetTester tester,
+  String goldenFileName, {
+  required Widget widget,
+  Size size = const Size(450, 200),
+  Color backgroundColor = const Color(0xFFF0F0F0),
+}) async {
   // Establecemos un tamaño de pantalla consistente.
   await tester.binding.setSurfaceSize(size);
 
@@ -32,9 +32,7 @@ Future<void> pumpGoldenTest(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: backgroundColor,
-        body: Center(
-          child: widget,
-        ),
+        body: Center(child: widget),
       ),
     ),
   );

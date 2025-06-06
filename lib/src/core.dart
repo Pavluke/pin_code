@@ -63,15 +63,19 @@ mixin PinCodeMixin on State<PinCode> {
       vsync: this as TickerProvider,
     );
     cursorController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this as TickerProvider);
+      duration: const Duration(milliseconds: 1000),
+      vsync: this as TickerProvider,
+    );
 
-    offsetAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0.1, 0.0),
-    ).animate(CurvedAnimation(parent: errorController, curve: Curves.elasticIn));
+    offsetAnimation =
+        Tween<Offset>(begin: Offset.zero, end: const Offset(0.1, 0.0)).animate(
+          CurvedAnimation(parent: errorController, curve: Curves.elasticIn),
+        );
 
-    cursorAnimation = Tween<double>(begin: 1, end: 0)
-        .animate(CurvedAnimation(parent: cursorController, curve: Curves.easeIn));
+    cursorAnimation = Tween<double>(
+      begin: 1,
+      end: 0,
+    ).animate(CurvedAnimation(parent: cursorController, curve: Curves.easeIn));
 
     if (widget.showCursor) {
       cursorController.repeat();
@@ -83,15 +87,16 @@ mixin PinCodeMixin on State<PinCode> {
       }
     });
 
-    errorAnimationSubscription =
-        widget.errorAnimationController?.stream.listen((error) {
-          if (error == PinCodeErrorAnimationType.shake) {
-            errorController.forward();
-            setState(() => isInErrorMode = true);
-          } else if (error == PinCodeErrorAnimationType.clear) {
-            setState(() => isInErrorMode = false);
-          }
-        });
+    errorAnimationSubscription = widget.errorAnimationController?.stream.listen(
+      (error) {
+        if (error == PinCodeErrorAnimationType.shake) {
+          errorController.forward();
+          setState(() => isInErrorMode = true);
+        } else if (error == PinCodeErrorAnimationType.clear) {
+          setState(() => isInErrorMode = false);
+        }
+      },
+    );
   }
 
   /// Disposes all resources used by the widget.
@@ -122,8 +127,10 @@ mixin PinCodeMixin on State<PinCode> {
           if (currentText.length > widget.length) {
             currentText = currentText.substring(0, widget.length);
           }
-          Future.delayed(const Duration(milliseconds: 100),
-                  () => widget.onCompleted!(currentText));
+          Future.delayed(
+            const Duration(milliseconds: 100),
+            () => widget.onCompleted!(currentText),
+          );
         }
         if (widget.autoDismissKeyboard) {
           focusNode!.unfocus();
@@ -141,7 +148,9 @@ mixin PinCodeMixin on State<PinCode> {
         MediaQuery.of(context).viewInsets.bottom == 0) {
       focusNode!.unfocus();
       Future.delayed(
-          const Duration(microseconds: 1), () => focusNode!.requestFocus());
+        const Duration(microseconds: 1),
+        () => focusNode!.requestFocus(),
+      );
     } else {
       focusNode!.requestFocus();
     }
@@ -174,10 +183,7 @@ mixin PinCodeMixin on State<PinCode> {
         color: widget.backgroundColor,
         child: Stack(
           alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            _buildHiddenTextFormField(),
-            _buildPinFields(),
-          ],
+          children: <Widget>[_buildHiddenTextFormField(), _buildPinFields()],
         ),
       ),
     );
@@ -243,13 +249,13 @@ mixin PinCodeMixin on State<PinCode> {
         },
         onLongPress: widget.enabled
             ? () async {
-          var data = await Clipboard.getData("text/plain");
-          if (data!= null && data.text != null) {
-            if (widget.beforeTextPaste?.call(data.text) ?? true) {
-              textEditingController!.text = data.text!;
-            }
-          }
-        }
+                var data = await Clipboard.getData("text/plain");
+                if (data != null && data.text != null) {
+                  if (widget.beforeTextPaste?.call(data.text) ?? true) {
+                    textEditingController!.text = data.text!;
+                  }
+                }
+              }
             : null,
         child: Row(
           mainAxisAlignment: widget.mainAxisAlignment,
@@ -271,7 +277,9 @@ mixin PinCodeMixin on State<PinCode> {
           width: pinTheme.fieldWidth,
           height: pinTheme.fieldHeight,
           decoration: BoxDecoration(
-            color: widget.enableActiveFill ? _getFillColor(i) : Colors.transparent,
+            color: widget.enableActiveFill
+                ? _getFillColor(i)
+                : Colors.transparent,
             boxShadow: widget.boxShadows,
             shape: pinTheme.shape == PinCodeFieldShape.circle
                 ? BoxShape.circle
@@ -307,11 +315,13 @@ mixin PinCodeMixin on State<PinCode> {
     Widget characterChild;
     if (inputList[index].isNotEmpty) {
       if (widget.obscureText) {
-        characterChild = widget.obscuringWidget ?? Text(
-          widget.obscuringCharacter,
-          key: ValueKey('obscure_$index'),
-          style: widget.textStyle,
-        );
+        characterChild =
+            widget.obscuringWidget ??
+            Text(
+              widget.obscuringCharacter,
+              key: ValueKey('obscure_$index'),
+              style: widget.textStyle,
+            );
       } else {
         characterChild = Text(
           inputList[index],
@@ -331,7 +341,8 @@ mixin PinCodeMixin on State<PinCode> {
     }
 
     // Determina si el cursor debe ser visible en este campo.
-    bool isCursorVisible = widget.showCursor &&
+    bool isCursorVisible =
+        widget.showCursor &&
         hasFocus &&
         (selectedIndex == index ||
             (selectedIndex == index + 1 && index + 1 == widget.length));
@@ -353,7 +364,9 @@ mixin PinCodeMixin on State<PinCode> {
             child: CustomPaint(
               size: Size(0, cursorHeight),
               painter: PinCodePainter(
-                  cursorColor: cursorColor, cursorWidth: widget.cursorWidth),
+                cursorColor: cursorColor,
+                cursorWidth: widget.cursorWidth,
+              ),
             ),
           ),
         ],
@@ -379,7 +392,9 @@ mixin PinCodeMixin on State<PinCode> {
     final width = _getBorderWidth(index);
 
     if (pinTheme.shape == PinCodeFieldShape.underline) {
-      return Border(bottom: BorderSide(color: color, width: width));
+      return Border(
+        bottom: BorderSide(color: color, width: width),
+      );
     }
     return Border.all(color: color, width: width);
   }
