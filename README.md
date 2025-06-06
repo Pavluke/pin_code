@@ -1,7 +1,9 @@
 # PinCode
 
-[](https://pub.dev/packages/pin_code)
-[](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![pin_code](https://img.shields.io/pub/v/pin_code.svg)](https://pub.dev/packages/pin_code)
+[![Dart 3](https://img.shields.io/badge/Dart-3%2B-blue.svg)](https://dart.dev/)
+[![Flutter 3.32](https://img.shields.io/badge/Flutter-3%2B-blue.svg)](https://flutter.dev/)
 
 A flexible and highly customizable PIN code entry widget for Flutter, designed with a clean architecture and no third-party dependencies.
 
@@ -26,7 +28,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pin_code: ^0.1.0
+  pin_code: ^1.0.0
 ```
 
 Then, run `flutter pub get` and import it in your Dart code:
@@ -133,9 +135,7 @@ PinCode(
 
 ## Acknowledgments
 
-`PinCode` is a heavily refactored and simplified version of the original [pin\_code\_fields](https://github.com/adar2378/pin_code_fields) library.
-
-The goal was to modernize the architecture, remove dependencies, and simplify the API for easier maintenance and use. Full credit and thanks go to the original author, [adar2378](https://github.com/adar2378), for their foundational work.
+`PinCode` is a modernized and simplified version of the [pin\_code\_fields](https://github.com/adar2378/pin_code_fields) library.
 
 ## Contributing
 

@@ -1,4 +1,4 @@
-## 0.1.0 - 2025-06-06
+## 1.0.0 - 2025-06-06
 
 This is the initial release of `pin_code`, a heavily refactored and simplified version of the original `pin_code_fields` library. The goal of this version is to provide a stable, maintainable, and dependency-free foundation.
 
