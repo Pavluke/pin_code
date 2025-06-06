@@ -9,15 +9,18 @@ A flexible and fully customizable widget for PIN, OTP, and passcode entry. Perfe
 
 ## Example of `PinCode` with different themes and error animation.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937" height="400" width="700" />
-  <img src="https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c" height="400" width="250"/>
+  <img src="https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937" height="320" width="500" />
+  <img src="https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c" height="320" width="250"/>
 </p>
 
-<img width="1363" alt="Screenshot" src="https://github.com/user-attachments/assets/348fd59f-0026-4476-99a8-0039d24477c2"/>
+<p align="center">
+  <img width="740" alt="Screenshot" src="https://github.com/user-attachments/assets/348fd59f-0026-4476-99a8-0039d24477c2"/>
+</p>
+
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e93b12dc-759f-453a-9a79-76e47c3b4d27" height="472" />
-  <img src="https://github.com/user-attachments/assets/8fd04bf0-73d9-4020-a098-3ce9fb9f6d60" height="472" />
+  <img src="https://github.com/user-attachments/assets/e93b12dc-759f-453a-9a79-76e47c3b4d27" height="400" width="370"/>
+  <img src="https://github.com/user-attachments/assets/8fd04bf0-73d9-4020-a098-3ce9fb9f6d60" height="400" width="370"/>
 </p>
 
 ## Features
