@@ -5,15 +5,20 @@
 [![Dart 3](https://img.shields.io/badge/Dart-3%2B-blue.svg)](https://dart.dev/)
 [![Flutter 3.32](https://img.shields.io/badge/Flutter-3%2B-blue.svg)](https://flutter.dev/)
 
-A flexible and highly customizable PIN code entry widget for Flutter, designed with a clean architecture and no third-party dependencies.
+A flexible and fully customizable widget for PIN, OTP, and passcode entry. Perfect for verification screens, 2FA, transaction confirmations, and more.
 
 ## Example of `PinCode` with different themes and error animation.
-<img width="1363" alt="Screenshot" src="https://github.com/user-attachments/assets/ebf09d61-fbbb-48f8-8b85-51601f263217" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937" height="400" width="750" />
+  <img src="https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c" height="400" width="250"/>
+</p>
 
-![timer_code](https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937)
+<img width="1363" alt="Screenshot" src="https://github.com/user-attachments/assets/348fd59f-0026-4476-99a8-0039d24477c2"/>
 
-![pin_login_system](https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e93b12dc-759f-453a-9a79-76e47c3b4d27" height="472" />
+  <img src="https://github.com/user-attachments/assets/8fd04bf0-73d9-4020-a098-3ce9fb9f6d60" height="472" />
+</p>
 
 ## Features
 
