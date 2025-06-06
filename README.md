@@ -9,7 +9,7 @@ A flexible and fully customizable widget for PIN, OTP, and passcode entry. Perfe
 
 ## Example of `PinCode` with different themes and error animation.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937" height="400" width="750" />
+  <img src="https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937" height="400" width="700" />
   <img src="https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c" height="400" width="250"/>
 </p>
 
