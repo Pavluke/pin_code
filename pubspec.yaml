@@ -1,6 +1,6 @@
 name: pin_code
-description: "A pin code library"
-version: 1.0.0
+description: A flexible and fully customizable widget for PIN, OTP, and passcode entry. Perfect for verification screens, 2FA, transaction confirmations, and more.
+version: 1.0.1
 homepage:
 
 environment:
