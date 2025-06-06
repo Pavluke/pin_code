@@ -5,9 +5,13 @@
 
 A flexible and highly customizable PIN code entry widget for Flutter, designed with a clean architecture and no third-party dependencies.
 
-\<br/\>
+## Example of `PinCode` with different themes and error animation.
+<img width="1363" alt="Screenshot" src="https://github.com/user-attachments/assets/ebf09d61-fbbb-48f8-8b85-51601f263217" />
 
-*\<p align="center"\>Example of `PinCode` with different themes and error animation.\</p\>*
+![timer_code](https://github.com/user-attachments/assets/0013bc5c-e991-43c8-93c5-7fdc75046937)
+
+![pin_login_system](https://github.com/user-attachments/assets/99d5396d-454f-4124-9229-7a2d4469806c)
+
 
 ## Features
 
