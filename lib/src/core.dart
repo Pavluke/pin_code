@@ -223,6 +223,9 @@ mixin PinCodeMixin on State<PinCode> {
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
             disabledBorder: InputBorder.none,
+            fillColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
           ),
           style: TextStyle(
             color: Colors.transparent,
