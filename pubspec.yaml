@@ -4,7 +4,7 @@ version: 1.2.0
 homepage: https://github.com/JhonaCodes/pin_code
 
 environment:
-  sdk: ^3.10.1
+  sdk: ^3.10.0
   flutter: ">=3.38.0"
 
 dependencies:
