@@ -30,7 +30,7 @@ void main() {
             controller: TextEditingController(text: "123"),
             showCursor: false,
             pinTheme: PinCodeTheme(
-              shape: PinCodeFieldShape.box,
+              shape: .box,
               borderRadius: BorderRadius.circular(5),
             ),
           ),
@@ -48,7 +48,7 @@ void main() {
             length: 4,
             controller: TextEditingController(text: "123"),
             showCursor: false,
-            pinTheme: PinCodeTheme(shape: PinCodeFieldShape.circle),
+            pinTheme: PinCodeTheme(shape: .circle),
           ),
         ),
       );
@@ -66,7 +66,7 @@ void main() {
             controller: TextEditingController(text: "123"),
             showCursor: false,
             pinTheme: PinCodeTheme(
-              shape: PinCodeFieldShape.box,
+              shape: .box,
               borderRadius: BorderRadius.circular(8),
               activeColor: Colors.blue.shade800,
               inactiveColor: Colors.grey.shade400,
@@ -109,11 +109,11 @@ void main() {
           builder: (context) => PinCode(
             appContext: context,
             length: 4,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: .spaceEvenly,
             controller: TextEditingController(text: "98"),
             showCursor: false,
             pinTheme: PinCodeTheme(
-              shape: PinCodeFieldShape.box,
+              shape: .box,
               borderRadius: BorderRadius.circular(20),
               fieldHeight: 70,
               fieldWidth: 60,

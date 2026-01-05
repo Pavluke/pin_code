@@ -1,3 +1,25 @@
+### 1.2.0
+
+#### Fixed
+- **Theme InputDecoration Override**: Fixed an issue where the app's `inputDecorationTheme` was overriding the hidden `TextFormField` styles, causing it to become visible behind the PIN fields. Added explicit transparent decorations (`fillColor`, `focusColor`, `hoverColor`, `errorBorder`, `focusedErrorBorder`, `disabledBorder`) to prevent theme inheritance. (Thanks to [@Pavluke](https://github.com/Pavluke) for reporting and suggesting the fix in [PR #2](https://github.com/JhonaCodes/pin_code/pull/2))
+
+#### Added
+- **`inputDecoration` Parameter**: Exposed optional `InputDecoration` parameter in `PinCode` widget, allowing users to customize the hidden input field decoration if needed.
+
+#### Changed
+- **Architecture Refactor**: Improved code structure following Flutter coding standards:
+  - **`PinFieldStyleCalculator`**: New class that separates style calculation logic from UI rendering.
+  - **`PinFieldData` Record**: Dart 3 record type containing pre-calculated styles (fillColor, border) for each field.
+  - **`_PinField` Widget**: Extracted individual PIN field rendering into a dedicated `StatelessWidget`.
+  - **Functional Composition**: Replaced imperative `_generateFields()` loop with `.expand().toList()` pattern for cleaner widget generation.
+- **Private Widgets**: Converted all internal builder methods to private `StatelessWidget` classes (`_HiddenTextFormField`, `_PinFieldsRow`, `_PinField`, `_PinFieldChild`).
+
+### 1.1.0
+- **Dart 3 Modernization**: Applied enum shorthand syntax across the entire project (`.center` instead of `Alignment.center`).
+- **New `_PinFieldChild` Widget**: Extracted PIN field content logic into a dedicated private `StatelessWidget` for better separation of concerns.
+- **Switch Expressions**: Replaced if-else chains with Dart 3 switch expressions and pattern matching for cleaner, more declarative code.
+- **Code Simplification**: Reduced boilerplate with arrow functions and collection-if syntax.
+
 ### 1.0.2
 -  **Update Readme**.
 
