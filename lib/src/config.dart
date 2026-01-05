@@ -141,8 +141,6 @@ class PinCodeTheme {
 
 //endregion
 
-
-
 /// Pre-calculated style data for a single PIN field.
 ///
 /// Contains the computed visual properties (colors, borders) based on
@@ -180,12 +178,15 @@ class PinFieldStyleCalculator {
   /// Returns a list of [PinFieldData] records containing pre-calculated
   /// fill colors and borders for each field index.
   List<PinFieldData> calculate(int length, List<String> inputList) =>
-      List.generate(length, (i) => (
-      index: i,
-      character: inputList[i],
-      fillColor: enableActiveFill ? _getFillColor(i) : Colors.transparent,
-      border: _getBorder(i),
-      ));
+      List.generate(
+        length,
+        (i) => (
+          index: i,
+          character: inputList[i],
+          fillColor: enableActiveFill ? _getFillColor(i) : Colors.transparent,
+          border: _getBorder(i),
+        ),
+      );
 
   Color _getFillColor(int index) {
     if (!enabled) return pinTheme.disabledColor;
@@ -199,7 +200,9 @@ class PinFieldStyleCalculator {
     final width = _getBorderWidth(index);
 
     if (pinTheme.shape == PinCodeFieldShape.underline) {
-      return Border(bottom: BorderSide(color: color, width: width));
+      return Border(
+        bottom: BorderSide(color: color, width: width),
+      );
     }
     return Border.all(color: color, width: width);
   }

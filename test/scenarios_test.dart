@@ -166,10 +166,7 @@ void main() {
                       inactiveColor: Colors.grey,
                       selectedColor: Colors.indigo,
                     ),
-                    textStyle: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: .w500,
-                    ),
+                    textStyle: const TextStyle(fontSize: 22, fontWeight: .w500),
                   ),
                 ),
               ],

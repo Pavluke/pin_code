@@ -213,7 +213,7 @@ class PinCode extends StatefulWidget {
     this.onAutoFillDisposeAction = .commit,
     this.scrollPadding = const EdgeInsets.all(20),
     this.separatorBuilder,
-    this.inputDecoration
+    this.inputDecoration,
   });
 
   @override

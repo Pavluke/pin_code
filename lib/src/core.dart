@@ -67,10 +67,10 @@ mixin PinCodeMixin on State<PinCode> {
       vsync: this as TickerProvider,
     );
 
-    offsetAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0.1, 0.0),
-    ).animate(CurvedAnimation(parent: errorController, curve: Curves.elasticIn));
+    offsetAnimation =
+        Tween<Offset>(begin: Offset.zero, end: const Offset(0.1, 0.0)).animate(
+          CurvedAnimation(parent: errorController, curve: Curves.elasticIn),
+        );
 
     cursorAnimation = Tween<double>(
       begin: 1,
@@ -87,14 +87,16 @@ mixin PinCodeMixin on State<PinCode> {
       }
     });
 
-    errorAnimationSubscription = widget.errorAnimationController?.stream.listen((error) {
-      final bool isShake = error == .shake;
+    errorAnimationSubscription = widget.errorAnimationController?.stream.listen(
+      (error) {
+        final bool isShake = error == .shake;
 
-      if (isShake) {
-        errorController.forward();
-      }
-      setState(() => isInErrorMode = isShake);
-    });
+        if (isShake) {
+          errorController.forward();
+        }
+        setState(() => isInErrorMode = isShake);
+      },
+    );
   }
 
   /// Disposes all resources used by the widget.
@@ -125,7 +127,10 @@ mixin PinCodeMixin on State<PinCode> {
           if (currentText.length > widget.length) {
             currentText = currentText.substring(0, widget.length);
           }
-          Future.delayed(const Duration(milliseconds: 100), () => widget.onCompleted!(currentText));
+          Future.delayed(
+            const Duration(milliseconds: 100),
+            () => widget.onCompleted!(currentText),
+          );
         }
         if (widget.autoDismissKeyboard) {
           focusNode!.unfocus();
@@ -142,7 +147,10 @@ mixin PinCodeMixin on State<PinCode> {
         focusNode!.hasFocus &&
         MediaQuery.of(context).viewInsets.bottom == 0) {
       focusNode!.unfocus();
-      Future.delayed(const Duration(microseconds: 1), () => focusNode!.requestFocus());
+      Future.delayed(
+        const Duration(microseconds: 1),
+        () => focusNode!.requestFocus(),
+      );
     } else {
       focusNode!.requestFocus();
     }
@@ -316,19 +324,25 @@ class _HiddenTextFormField extends StatelessWidget {
         onEditingComplete: onEditingComplete,
         showCursor: false,
         cursorWidth: 0.01,
-        decoration: inputDecoration ?? const InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          border: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          fillColor: Colors.transparent,
-          focusColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          errorBorder: InputBorder.none,
-          focusedErrorBorder: InputBorder.none,
+        decoration:
+            inputDecoration ??
+            const InputDecoration(
+              contentPadding: EdgeInsets.all(0),
+              border: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              disabledBorder: InputBorder.none,
+              fillColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              errorBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+            ),
+        style: TextStyle(
+          color: Colors.transparent,
+          height: 0.01,
+          fontSize: kIsWeb ? 1 : 0.01,
         ),
-        style: TextStyle(color: Colors.transparent, height: 0.01, fontSize: kIsWeb ? 1 : 0.01),
         scrollPadding: scrollPadding,
         readOnly: readOnly,
       ),
@@ -420,32 +434,36 @@ class _PinFieldsRow extends StatelessWidget {
         child: Row(
           mainAxisAlignment: mainAxisAlignment,
           children: [
-            ...styleCalculator.calculate(length, inputList).expand((data) => [
-              _PinField(
-                data: data,
-                pinTheme: pinTheme,
-                animationCurve: animationCurve,
-                animationDuration: animationDuration,
-                boxShadows: boxShadows,
-                borderRadius: borderRadius,
-                hasFocus: hasFocus,
-                selectedIndex: selectedIndex,
-                length: length,
-                obscureText: obscureText,
-                obscuringWidget: obscuringWidget,
-                obscuringCharacter: obscuringCharacter,
-                textStyle: textStyle,
-                hintCharacter: hintCharacter,
-                hintStyle: hintStyle,
-                showCursor: showCursor,
-                cursorColor: cursorColor,
-                cursorHeight: cursorHeight,
-                cursorWidth: cursorWidth,
-                cursorAnimation: cursorAnimation,
-              ),
-              if (separatorBuilder != null && data.index < length - 1)
-                separatorBuilder!(context, data.index),
-            ]),
+            ...styleCalculator
+                .calculate(length, inputList)
+                .expand(
+                  (data) => [
+                    _PinField(
+                      data: data,
+                      pinTheme: pinTheme,
+                      animationCurve: animationCurve,
+                      animationDuration: animationDuration,
+                      boxShadows: boxShadows,
+                      borderRadius: borderRadius,
+                      hasFocus: hasFocus,
+                      selectedIndex: selectedIndex,
+                      length: length,
+                      obscureText: obscureText,
+                      obscuringWidget: obscuringWidget,
+                      obscuringCharacter: obscuringCharacter,
+                      textStyle: textStyle,
+                      hintCharacter: hintCharacter,
+                      hintStyle: hintStyle,
+                      showCursor: showCursor,
+                      cursorColor: cursorColor,
+                      cursorHeight: cursorHeight,
+                      cursorWidth: cursorWidth,
+                      cursorAnimation: cursorAnimation,
+                    ),
+                    if (separatorBuilder != null && data.index < length - 1)
+                      separatorBuilder!(context, data.index),
+                  ],
+                ),
           ],
         ),
       ),
@@ -512,7 +530,9 @@ class _PinField extends StatelessWidget {
     decoration: BoxDecoration(
       color: data.fillColor,
       boxShadow: boxShadows,
-      shape: pinTheme.shape == PinCodeFieldShape.circle ? BoxShape.circle : BoxShape.rectangle,
+      shape: pinTheme.shape == PinCodeFieldShape.circle
+          ? BoxShape.circle
+          : BoxShape.rectangle,
       borderRadius: borderRadius,
       border: data.border,
     ),
@@ -592,20 +612,36 @@ class _PinFieldChild extends StatelessWidget {
     alignment: .center,
     children: [
       switch ((character.isNotEmpty, obscureText, hintCharacter)) {
-        (true, true, _) => obscuringWidget ?? Text(obscuringCharacter, key: ValueKey('obscure_$index'), style: textStyle),
-        (true, false, _) => Text(character, key: ValueKey('char_$index'), style: textStyle),
-        (false, _, String hint) => Text(hint, key: ValueKey('hint_$index'), style: hintStyle),
+        (true, true, _) =>
+          obscuringWidget ??
+              Text(
+                obscuringCharacter,
+                key: ValueKey('obscure_$index'),
+                style: textStyle,
+              ),
+        (true, false, _) => Text(
+          character,
+          key: ValueKey('char_$index'),
+          style: textStyle,
+        ),
+        (false, _, String hint) => Text(
+          hint,
+          key: ValueKey('hint_$index'),
+          style: hintStyle,
+        ),
         _ => SizedBox.shrink(key: ValueKey('empty_$index')),
       },
       if (showCursor &&
           hasFocus &&
-          (selectedIndex == index || (selectedIndex == index + 1 && index + 1 == length)))
+          (selectedIndex == index ||
+              (selectedIndex == index + 1 && index + 1 == length)))
         FadeTransition(
           opacity: cursorAnimation,
           child: CustomPaint(
             size: Size(0, cursorHeight ?? (textStyle?.fontSize ?? 20) + 8),
             painter: PinCodePainter(
-              cursorColor: cursorColor ?? Theme.of(context).colorScheme.secondary,
+              cursorColor:
+                  cursorColor ?? Theme.of(context).colorScheme.secondary,
               cursorWidth: cursorWidth,
             ),
           ),
