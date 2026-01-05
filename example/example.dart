@@ -14,7 +14,7 @@ class PasscodeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: .center,
           children: [
             const Icon(
               Icons.lock_outline_rounded,
@@ -27,7 +27,7 @@ class PasscodeScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 22,
-                fontWeight: FontWeight.bold,
+                fontWeight: .bold,
               ),
             ),
             const SizedBox(height: 48),
@@ -42,7 +42,7 @@ class PasscodeScreen extends StatelessWidget {
                   log("🔑 Passcode entered: $value");
                 },
                 pinTheme: PinCodeTheme(
-                  shape: PinCodeFieldShape.box,
+                  shape: .box,
                   borderRadius: BorderRadius.circular(10),
                   fieldHeight: 60,
                   fieldWidth: 60,

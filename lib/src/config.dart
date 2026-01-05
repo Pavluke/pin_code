@@ -88,11 +88,11 @@ class PinCodeTheme {
     this.inactiveBorderWidth = 1.0,
     this.disabledBorderWidth = 1.0,
     this.errorBorderWidth = 1.0,
-    this.borderRadius = BorderRadius.zero,
+    this.borderRadius = .zero,
     this.fieldHeight = 50.0,
     this.fieldWidth = 40.0,
-    this.shape = PinCodeFieldShape.underline,
-    this.fieldOuterPadding = EdgeInsets.zero,
+    this.shape = .underline,
+    this.fieldOuterPadding = .zero,
   });
 
   /// Creates a copy of this theme but with the given fields replaced with the new values.
@@ -140,3 +140,83 @@ class PinCodeTheme {
 }
 
 //endregion
+
+
+
+/// Pre-calculated style data for a single PIN field.
+///
+/// Contains the computed visual properties (colors, borders) based on
+/// the current state of the field (active, selected, disabled, error).
+typedef PinFieldData = ({
+  int index,
+  String character,
+  Color fillColor,
+  Border? border,
+});
+
+/// Calculates visual styles for PIN fields based on their state.
+///
+/// Separates style computation logic from UI rendering, allowing
+/// the widget to use a functional approach with `.map()` and `.expand()`.
+class PinFieldStyleCalculator {
+  const PinFieldStyleCalculator({
+    required this.pinTheme,
+    required this.enabled,
+    required this.hasFocus,
+    required this.selectedIndex,
+    required this.isInErrorMode,
+    required this.enableActiveFill,
+  });
+
+  final PinCodeTheme pinTheme;
+  final bool enabled;
+  final bool hasFocus;
+  final int selectedIndex;
+  final bool isInErrorMode;
+  final bool enableActiveFill;
+
+  /// Generates style data for all PIN fields.
+  ///
+  /// Returns a list of [PinFieldData] records containing pre-calculated
+  /// fill colors and borders for each field index.
+  List<PinFieldData> calculate(int length, List<String> inputList) =>
+      List.generate(length, (i) => (
+      index: i,
+      character: inputList[i],
+      fillColor: enableActiveFill ? _getFillColor(i) : Colors.transparent,
+      border: _getBorder(i),
+      ));
+
+  Color _getFillColor(int index) {
+    if (!enabled) return pinTheme.disabledColor;
+    if (hasFocus && selectedIndex == index) return pinTheme.selectedFillColor;
+    if (selectedIndex > index) return pinTheme.activeFillColor;
+    return pinTheme.inactiveFillColor;
+  }
+
+  Border? _getBorder(int index) {
+    final color = _getBorderColor(index);
+    final width = _getBorderWidth(index);
+
+    if (pinTheme.shape == PinCodeFieldShape.underline) {
+      return Border(bottom: BorderSide(color: color, width: width));
+    }
+    return Border.all(color: color, width: width);
+  }
+
+  Color _getBorderColor(int index) {
+    if (isInErrorMode) return pinTheme.errorBorderColor;
+    if (!enabled) return pinTheme.disabledColor;
+    if (hasFocus && selectedIndex == index) return pinTheme.selectedColor;
+    if (selectedIndex > index) return pinTheme.activeColor;
+    return pinTheme.inactiveColor;
+  }
+
+  double _getBorderWidth(int index) {
+    if (isInErrorMode) return pinTheme.errorBorderWidth;
+    if (!enabled) return pinTheme.disabledBorderWidth;
+    if (hasFocus && selectedIndex == index) return pinTheme.selectedBorderWidth;
+    if (selectedIndex > index) return pinTheme.activeBorderWidth;
+    return pinTheme.inactiveBorderWidth;
+  }
+}

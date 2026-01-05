@@ -10,7 +10,7 @@ void main() {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: .center,
             children: [
               const Icon(Icons.lock, color: Colors.white, size: 48),
               const SizedBox(height: 24),
@@ -26,7 +26,7 @@ void main() {
                   showCursor: false,
                   controller: TextEditingController(text: "12"),
                   pinTheme: PinCodeTheme(
-                    shape: PinCodeFieldShape.box,
+                    shape: .box,
                     fieldHeight: 60,
                     fieldWidth: 60,
                     borderRadius: BorderRadius.circular(12),
@@ -69,18 +69,18 @@ void main() {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: .center,
+            crossAxisAlignment: .stretch,
             children: [
               const Text(
                 'Verify Your Account',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: .center,
+                style: TextStyle(fontSize: 24, fontWeight: .bold),
               ),
               const SizedBox(height: 16),
               Text(
                 'We sent a 6-digit code to your@email.com',
-                textAlign: TextAlign.center,
+                textAlign: .center,
                 style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
               ),
               const SizedBox(height: 40),
@@ -92,7 +92,7 @@ void main() {
                   controller: TextEditingController(text: "123"),
                   enableActiveFill: true,
                   pinTheme: PinCodeTheme(
-                    shape: PinCodeFieldShape.box,
+                    shape: .box,
                     borderRadius: BorderRadius.circular(8),
                     activeColor: Colors.black,
                     inactiveColor: Colors.grey.shade300,
@@ -132,7 +132,7 @@ void main() {
           body: Container(
             padding: const EdgeInsets.all(30),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [
                 const CircleAvatar(
                   backgroundColor: Colors.green,
@@ -142,12 +142,12 @@ void main() {
                 const SizedBox(height: 20),
                 const Text(
                   'Enter Confirmation Code',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: .bold),
                 ),
                 const SizedBox(height: 10),
                 const Text(
                   'Check your banking app for the 5-character code.',
-                  textAlign: TextAlign.center,
+                  textAlign: .center,
                   style: TextStyle(color: Colors.black54),
                 ),
                 const SizedBox(height: 30),
@@ -155,11 +155,11 @@ void main() {
                   builder: (context) => PinCode(
                     appContext: context,
                     length: 5,
-                    keyboardType: TextInputType.text, // Alfanumérico
+                    keyboardType: .text, // Alfanumérico
                     controller: TextEditingController(text: "A4B"),
                     showCursor: false,
                     pinTheme: PinCodeTheme(
-                      shape: PinCodeFieldShape.underline,
+                      shape: .underline,
                       fieldHeight: 50,
                       fieldWidth: 40,
                       activeColor: Colors.black,
@@ -168,7 +168,7 @@ void main() {
                     ),
                     textStyle: const TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: .w500,
                     ),
                   ),
                 ),

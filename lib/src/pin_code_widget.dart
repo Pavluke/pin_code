@@ -160,6 +160,8 @@ class PinCode extends StatefulWidget {
   /// An optional builder to create separator widgets between each field.
   final IndexedWidgetBuilder? separatorBuilder;
 
+  final InputDecoration? inputDecoration;
+
   /// {@macro pin_code_text_field}
   const PinCode({
     super.key,
@@ -172,10 +174,10 @@ class PinCode extends StatefulWidget {
     this.onChanged,
     this.onCompleted,
     this.backgroundColor,
-    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
+    this.mainAxisAlignment = .spaceBetween,
     this.animationDuration = const Duration(milliseconds: 150),
     this.animationCurve = Curves.easeInOut,
-    this.keyboardType = TextInputType.number,
+    this.keyboardType = .number,
     this.autoFocus = false,
     this.focusNode,
     this.onTap,
@@ -184,8 +186,8 @@ class PinCode extends StatefulWidget {
     this.textStyle,
     this.useHapticFeedback = false,
     this.enableActiveFill = false,
-    this.textCapitalization = TextCapitalization.none,
-    this.textInputAction = TextInputAction.done,
+    this.textCapitalization = .none,
+    this.textInputAction = .done,
     this.autoDismissKeyboard = true,
     this.autoDisposeControllers = true,
     this.onSubmitted,
@@ -195,7 +197,7 @@ class PinCode extends StatefulWidget {
     this.pinTheme = const PinCodeTheme(),
     this.validator,
     this.onSaved,
-    this.autovalidateMode = AutovalidateMode.onUserInteraction,
+    this.autovalidateMode = .onUserInteraction,
     this.errorTextSpace = 16,
     this.enablePinAutofill = true,
     this.errorAnimationDuration = 500,
@@ -208,9 +210,10 @@ class PinCode extends StatefulWidget {
     this.hintStyle,
     this.readOnly = false,
     this.autoUnfocus = true,
-    this.onAutoFillDisposeAction = AutofillContextAction.commit,
+    this.onAutoFillDisposeAction = .commit,
     this.scrollPadding = const EdgeInsets.all(20),
     this.separatorBuilder,
+    this.inputDecoration
   });
 
   @override
