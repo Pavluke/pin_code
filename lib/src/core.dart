@@ -88,12 +88,12 @@ mixin PinCodeMixin on State<PinCode> {
     });
 
     errorAnimationSubscription = widget.errorAnimationController?.stream.listen((error) {
-      if (error == .shake) {
+      final bool isShake = error == .shake;
+
+      if (isShake) {
         errorController.forward();
-        setState(() => isInErrorMode = true);
-      } else if (error == .clear) {
-        setState(() => isInErrorMode = false);
       }
+      setState(() => isInErrorMode = isShake);
     });
   }
 
